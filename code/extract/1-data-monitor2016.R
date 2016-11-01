@@ -119,7 +119,7 @@ getIndicatorData <- function(formInstance) {
   # Return an empty result if the form has no indicators in its design:
   if (length(formInstance$indicators) == 0L) {
     warning("form '", formInstance$name, "' has no indicators")
-    return(list(rows = 0L, columns = list()))
+    return(list(resource = list(rows = 0L, columns = list())))
   }
   
   query <- list(site.id = "site@id")
