@@ -174,7 +174,8 @@ getFormData <- function(formInstance, include.comments = FALSE) {
                    # one or more of the values is 'NULL'
                    mode <- switch(column$type,
                                   STRING = "character",
-                                  NUMBER = "double")
+                                  NUMBER = "double",
+                                  BOOLEAN = "logical")
                    vapply(column$values, na.if.null, vector(mode, 1L), mode = mode)
                  } else {
                    column$values
@@ -290,7 +291,7 @@ all.column.names <- unique(do.call(c, lapply(form.data, names)))
 missing.columns <- setdiff(all.column.names, common.column.names)
 if (length(missing.columns) > 0L) {
   warning("the following column(s) is or are not shared by all forms: ",
-          paste(missing.columns, sep = ", "))
+          paste(missing.columns, collapse = ", "))
 }
 
 # Write out the full data extract to CSV file:
