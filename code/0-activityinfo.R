@@ -6,7 +6,7 @@ if(!("devtools" %in% installed.packages())) {
   install.packages("devtools")
 }
 # Ensure that a recent version of the 'activityinfo' package is installed:
-if(!"activityinfo" %in% installed.packages() || packageVersion("activityinfo") < "0.4.17") {
+if(!"activityinfo" %in% installed.packages() || packageVersion("activityinfo") < "0.5.0") {
   library(devtools)
   install_github( "bedatadriven/activityinfo-R", ref = "release")
 }
